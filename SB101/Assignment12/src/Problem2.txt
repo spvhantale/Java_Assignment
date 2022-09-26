@@ -1,0 +1,232 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| web19sb101db       |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> set web19sb101db;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> use web19sb101db;
+Database changed
+mysql> create Student
+    -> (
+    -> Name varchar(20),
+    -> RollNo int,
+    -> Branch varchar(20),
+    -> City varchar(20)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Student
+(
+Name varchar(20),
+RollNo int,
+Branch varchar(20),
+City varchar(20)
+)' at line 1
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| deposit                |
+| student                |
++------------------------+
+5 rows in set (0.00 sec)
+
+mysql> delete student ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> delete student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| deposit                |
+| student                |
++------------------------+
+5 rows in set (0.00 sec)
+
+mysql> drop table student;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| deposit                |
++------------------------+
+4 rows in set (0.00 sec)
+
+mysql> create Student
+    -> (
+    -> Name varchar (20),
+    -> RollNo int,
+    -> Branch varchar(20),
+    -> City varchar(20)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Student
+(
+Name varchar (20),
+RollNo int,
+Branch varchar(20),
+City varchar(20)
+)' at line 1
+mysql> create Student
+    -> (
+    -> Name varchar(20),
+    -> RollNo int,
+    -> Branch varchar(20),
+    -> City varchar(20)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Student
+(
+Name varchar(20),
+RollNo int,
+Branch varchar(20),
+City varchar(20)
+)' at line 1
+mysql> create table Student
+    -> (
+    -> Name varchar(20),
+    -> RollNo int,
+    -> Branch varchar(20),
+    -> City varchar(20)
+    -> );
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> insert student values('Vijay',150,'CSE','Chennai');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert student values('Sita',202,'ETC','Kolkata');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert student values('Ravi',300,'EEE','Delhi');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert student values('Basu',165,'ETC','Chennai');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert student values('Rasmi',107,'ETC','RKL');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert student values('Karan',111,'CSE','CTC');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert student values('Rekha',117,'BME','BBSR');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select Count('CSE') from student;
++--------------+
+| Count('CSE') |
++--------------+
+|            7 |
++--------------+
+1 row in set (0.07 sec)
+
+mysql> select Count(*) from student;
++----------+
+| Count(*) |
++----------+
+|        7 |
++----------+
+1 row in set (0.05 sec)
+
+mysql> select Count(*) where Branch='CSE';
+ERROR 1054 (42S22): Unknown column 'Branch' in 'where clause'
+mysql> select Count(*) from student where Branch='CSE';
++----------+
+| Count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.06 sec)
+
+mysql> select Count(*) from student where Branch='ETC';
++----------+
+| Count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select Count(*) from student where Branch='EEE';
++----------+
+| Count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select Count(*) from student where Branch='BME';
++----------+
+| Count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select Count(*) from student where Branch like ='e%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '='e%'' at line 1
+mysql> select Count(*) from student where Branch like 'e%';
++----------+
+| Count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> alter table student add Marks int;
+Query OK, 0 rows affected (0.32 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show table student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'student' at line 1
+mysql> select * from student;
++-------+--------+--------+---------+-------+
+| Name  | RollNo | Branch | City    | Marks |
++-------+--------+--------+---------+-------+
+| Vijay |    150 | CSE    | Chennai |  NULL |
+| Sita  |    202 | ETC    | Kolkata |  NULL |
+| Ravi  |    300 | EEE    | Delhi   |  NULL |
+| Basu  |    165 | ETC    | Chennai |  NULL |
+| Rasmi |    107 | ETC    | RKL     |  NULL |
+| Karan |    111 | CSE    | CTC     |  NULL |
+| Rekha |    117 | BME    | BBSR    |  NULL |
++-------+--------+--------+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student set marks=12345678;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'set marks=12345678' at line 1
+mysql> update student set marks=12345678;
+Query OK, 7 rows affected (0.05 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select * from student;
++-------+--------+--------+---------+----------+
+| Name  | RollNo | Branch | City    | Marks    |
++-------+--------+--------+---------+----------+
+| Vijay |    150 | CSE    | Chennai | 12345678 |
+| Sita  |    202 | ETC    | Kolkata | 12345678 |
+| Ravi  |    300 | EEE    | Delhi   | 12345678 |
+| Basu  |    165 | ETC    | Chennai | 12345678 |
+| Rasmi |    107 | ETC    | RKL     | 12345678 |
+| Karan |    111 | CSE    | CTC     | 12345678 |
+| Rekha |    117 | BME    | BBSR    | 12345678 |
++-------+--------+--------+---------+----------+
+7 rows in set (0.00 sec)
+
+mysql> update student set marks=123456789;
+Query OK, 7 rows affected (0.06 sec)

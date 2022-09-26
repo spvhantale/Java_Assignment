@@ -1,0 +1,25 @@
+package com.problem1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String url="jdbc:mysql://localhost:3306/c4evaluation";
+		Scanner sc=new Scanner(System.in);
+		System.out.println("choose the option "+"\n"+"1.insert Student"+"\n"+"2.insert Course"+"\n"+"3.insert Student_course"+"\n"+"4.print the all details"+"\n"+"5.print the details on the basis of course enroll");
+		try (Connection conn=DriverManager.getConnection(url, "root", "4935")){
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

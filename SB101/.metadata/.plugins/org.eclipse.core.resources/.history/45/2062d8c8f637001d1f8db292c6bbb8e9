@@ -1,0 +1,12 @@
+package com.problem2;
+
+public class ShowDetails implements Runnable {
+
+	String 
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

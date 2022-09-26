@@ -1,0 +1,495 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| web19sb101db       |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use web19sb101db;
+Database changed
+mysql> create table Deposit
+    -> (
+    -> ActNo varchar(25),
+    -> CName varhcar(20),
+    -> BName varchar(20),
+    -> Amount int,
+    -> ADate date
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varhcar(20),
+BName varchar(20),
+Amount int,
+ADate date
+)' at line 4
+mysql> create table Deposit
+    -> (
+    -> ActNo varchar(25),
+    -> CName varchar(20),
+    -> BName varchar(20),
+    -> Amount int,
+    -> ADate date
+    -> );
+Query OK, 0 rows affected (0.30 sec)
+
+mysql> show table Deposit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Deposit' at line 1
+mysql> create table Branch
+    -> (
+    -> BName varchar(20),
+    -> City varchar(20),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql> create table Branch
+    -> (
+    -> BName varchar(20),
+    -> City varchar(20)
+    -> );
+Query OK, 0 rows affected (0.45 sec)
+
+mysql> create table Customer
+    -> (
+    -> CName varchar(20),
+    -> City varchar(20)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table Borrow
+    -> (
+    -> LoanNo varchar(5),
+    -> CName varchar(20),
+    -> BName varchar(20),
+    -> Amount int
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| deposit                |
+| student                |
++------------------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Deposit values(101,Anil,vrce,1000,1955-03-01);
+ERROR 1054 (42S22): Unknown column 'Anil' in 'field list'
+mysql> insert into Deposit values('101','Anil','vrce',1000,1955-03-01);
+ERROR 1292 (22007): Incorrect date value: '1951' for column 'ADate' at row 1
+mysql> insert into Deposit values('101','Anil','vrce',1000,'1955-03-01');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into Deposit values('102','Sunil','Mgroad',5000,'1996-01-04');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Deposit values('102','Sunil','Mgroad',5000,'1996-01-04');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> drop table deposit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> delete from deposit;
+ERROR 1146 (42S02): Table 'web19sb101db.deposit' doesn't exist
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| student                |
++------------------------+
+4 rows in set (0.00 sec)
+
+mysql>  create table Deposit
+    ->     -> (
+    ->     -> ActNo varchar(25),
+    ->     -> CName varchar(20),
+    ->     -> BName varchar(20),
+    ->     -> Amount int,
+    ->     -> ADate date
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    -> ActNo varchar(25),
+    -> CName varchar(20),
+    -> BName varchar(20' at line 2
+mysql> create table Deposit
+    ->      (
+    ->      ActNo varchar(25),
+    ->      CName varchar(20),
+    ->      BName varchar(20),
+    ->      Amount int,
+    ->      ADate date
+    ->      );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_web19sb101db |
++------------------------+
+| borrow                 |
+| branch                 |
+| customer               |
+| deposit                |
+| student                |
++------------------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into Deposit values('101','Anil','vrce',1000,'1995-03-01');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Deposit values('102','Sunil','Mgroad',5000,'1996-01-01');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Deposit values('103','Rahul','Karolbagh',3500,'1996-11-17');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Deposit values('104','Madhuri','Chandni',1200,'1995-12-17');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> update deposit set ADate='1995-11-17' where ActNo=103;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set ActNo=100 where ActNo=101;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set ActNo=101 where ActNo=102;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set ActNo=102 where ActNo=103;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set ActNo=103 where ActNo=104;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set ActNo=104 where ActNo=105;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> insert into Deposit values('104','Pramod','Mgroad',3000,'1996-03-27');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into Deposit values('105','Sandip','Karolbagh',2000,'1996-03-31');
+Query OK, 1 row affected (0.36 sec)
+
+mysql> insert into branch values('Vrce','Nagpur');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into branch values('Karolbagh','Delhi');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into branch values('Chandni','Delhi');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into branch values('Mgroad','Banglore');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into customer values('Anil','Calcuta');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into customer values('Rahul','Baroda');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into customer values('Madhuri','Nagpur');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into customer values('Pramod','Nagpur');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into customer values('Sunil','Delhi');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into borrow values('201','Anil','Vrce',1000);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into borrow values('202','Rahul','Karolbagh',5000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> update borrow set LoanNo=206 where LoanNo=202;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> insert into borrow values('311','Sunil','Mgraod',3000);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into borrow values('321','Madhuri','Chandni',2000);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into borrow values('375','Pramod','Mgroad',8000);
+Query OK, 1 row affected (0.28 sec)
+
+mysql> select * from borrow where amount between 2000 AND 3000;
++--------+---------+---------+--------+
+| LoanNo | CName   | BName   | Amount |
++--------+---------+---------+--------+
+| 311    | Sunil   | Mgraod  |   3000 |
+| 321    | Madhuri | Chandni |   2000 |
++--------+---------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |   1000 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> selct ActNo,Cname from deposit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct ActNo,Cname from deposit' at line 1
+mysql> select ActNo, CName from deposit;
++-------+---------+
+| ActNo | CName   |
++-------+---------+
+| 100   | Anil    |
+| 101   | Sunil   |
+| 102   | Rahul   |
+| 103   | Madhuri |
+| 104   | Pramod  |
+| 105   | Sandip  |
++-------+---------+
+6 rows in set (0.00 sec)
+
+mysql> select name from Customer where City='Nagpur';
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select CName from Customer where City='Nagpur';
++---------+
+| CName   |
++---------+
+| Madhuri |
+| Pramod  |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select CName from Deposit where ADate>'1995-11-17';
++---------+
+| CName   |
++---------+
+| Sunil   |
+| Madhuri |
+| Pramod  |
+| Sandip  |
++---------+
+4 rows in set (0.01 sec)
+
+mysql> select ActNo,Amount from where Adate between '1995-12-01' AND '1996-06-01';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where Adate between '1995-12-01' AND '1996-06-01'' at line 1
+mysql> select ActNo,Amount from deposit where Adate between '1995-12-01' AND '1996-06-01';
++-------+--------+
+| ActNo | Amount |
++-------+--------+
+| 101   |   5000 |
+| 103   |   1200 |
+| 104   |   3000 |
+| 105   |   2000 |
++-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from deposit where CName like 'c%';
+Empty set (0.05 sec)
+
+mysql> select * from Borrow where CName like '_u%';
++--------+-------+--------+--------+
+| LoanNo | CName | BName  | Amount |
++--------+-------+--------+--------+
+| 311    | Sunil | Mgraod |   3000 |
++--------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from deposit where BName between 'Chandni' OR 'Mgroad';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OR 'Mgroad'' at line 1
+mysql> select * from deposit where Bname ='Chandni' OR Bname='Mgroad';
++-------+---------+---------+--------+------------+
+| ActNo | CName   | BName   | Amount | ADate      |
++-------+---------+---------+--------+------------+
+| 101   | Sunil   | Mgroad  |   5000 | 1996-01-01 |
+| 103   | Madhuri | Chandni |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad  |   3000 | 1996-03-27 |
++-------+---------+---------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from deposit where Amount>1000 order by amount;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
++-------+---------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from deposit where Amount>1000 order by amount dec;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dec' at line 1
+mysql> select * from deposit where Amount>1000 order by amount desc;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
++-------+---------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Borrow where CName like '__a%' OR '__d';
++--------+--------+--------+--------+
+| LoanNo | CName  | BName  | Amount |
++--------+--------+--------+--------+
+| 375    | Pramod | Mgroad |   8000 |
++--------+--------+--------+--------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select * from borrow where amount between 2000 NOT 8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT 8000' at line 1
+mysql> select * from borrow where amount between 2000 AND NOT 8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT 8000' at line 1
+mysql> select * from borrow where amount between NOT 2000 AND NOT 8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NOT 2000 AND NOT 8000' at line 1
+mysql> select * from borrow where amount NOT 2000 AND NOT 8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2000 AND NOT 8000' at line 1
+mysql> select * from borrow where amount NOT amount=2000 AND NOT amount=8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'amount=2000 AND NOT amount=8000' at line 1
+mysql> select * from borrow where  NOT amount=2000 AND NOT amount=8000;
++--------+-------+-----------+--------+
+| LoanNo | CName | BName     | Amount |
++--------+-------+-----------+--------+
+| 201    | Anil  | Vrce      |   1000 |
+| 206    | Rahul | Karolbagh |   5000 |
+| 311    | Sunil | Mgraod    |   3000 |
++--------+-------+-----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from borrow where between NOT amount=2000 AND NOT amount=8000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'between NOT amount=2000 AND NOT amount=8000' at line 1
+mysql> select distinct deposit from deposit;
+ERROR 1054 (42S22): Unknown column 'deposit' in 'field list'
+mysql> select distinct Bname from deposit;
++-----------+
+| Bname     |
++-----------+
+| vrce      |
+| Mgroad    |
+| Karolbagh |
+| Chandni   |
++-----------+
+4 rows in set (0.05 sec)
+
+mysql> select distinct * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |   1000 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update deposit set amount=amount*0.1 where Bname='vrce';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |    100 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update deposit set amount= 1000 where Bname='vrce';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update deposit set amount= amount+amount*0.1 where Bname='vrce';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |   1100 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update deposit set amount=amount*0.1 where Bname='vrce' AND CName='Anil';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |    110 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> update deposit set amount= 1100 where Bname='vrce';B
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+    -> update deposit set amount= 1100 where Bname='vrce';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'B
+update deposit set amount= 1100 where Bname='vrce'' at line 1
+mysql> update deposit set amount= 1100 where Bname='vrce';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> update deposit set amount= amount+amount*0.1 where Bname='vrce' AND CName='Anil;
+    '> update deposit set amount= amount+amount*0.1 where Bname='vrce' AND CName='Anil;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'vrce' AND CName='Anil' at line 2
+mysql> update deposit set amount= amount+amount*0.1 where Bname='vrce' AND CName='Anil';
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deposit;
++-------+---------+-----------+--------+------------+
+| ActNo | CName   | BName     | Amount | ADate      |
++-------+---------+-----------+--------+------------+
+| 100   | Anil    | vrce      |   1210 | 1995-03-01 |
+| 101   | Sunil   | Mgroad    |   5000 | 1996-01-01 |
+| 102   | Rahul   | Karolbagh |   3500 | 1995-11-17 |
+| 103   | Madhuri | Chandni   |   1200 | 1995-12-17 |
+| 104   | Pramod  | Mgroad    |   3000 | 1996-03-27 |
+| 105   | Sandip  | Karolbagh |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql>

@@ -1,0 +1,40 @@
+package com.problem;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the department id");
+int depid=sc.nextInt();
+System.out.println("Enter the Department name");
+String dname=sc.next();
+System.out.println("Enter the location");
+String dloc=sc.next();
+		String url="jdbc:mysql://localhost:3306/sb101day5";
+		try {
+			Connection conn=DriverManager.getConnection(url, "root", "4935");
+			PreparedStatement statement=conn.prepareStatement("insert into department values(?,?,?)");
+			statement.setInt(1, depid);
+			statement.setString(2, dname);
+			statement.setString(3, dloc);
+			
+			int x=statement.executeUpdate();
+			if(x>0) {
+				System.out.println("Inserted "+x);
+			}else {
+				System.out.println("Not inserted");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

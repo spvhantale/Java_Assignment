@@ -1,0 +1,23 @@
+package com.problem1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String url="jdbc:mysql://localhost:3306/c4evaluation";
+		
+		try {
+			Connection conn=DriverManager.getConnection(url, "root", "4935");
+			System.out.println("connected.............");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
