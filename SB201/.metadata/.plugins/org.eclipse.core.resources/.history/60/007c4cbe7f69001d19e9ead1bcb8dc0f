@@ -1,0 +1,67 @@
+package com.swapnil.model;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Account {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String email;
+	private String address;
+	private double salary;
+	private LocalDate created_date;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public LocalDate getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(LocalDate created_date) {
+		this.created_date = created_date;
+	}
+	public Account(int id, String email, String address, double salary, LocalDate created_date) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.address = address;
+		this.salary = salary;
+		this.created_date = created_date;
+	}
+	public Account() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", email=" + email + ", address=" + address + ", salary=" + salary
+				+ ", created_date=" + created_date + "]";
+	}
+	
+	
+}

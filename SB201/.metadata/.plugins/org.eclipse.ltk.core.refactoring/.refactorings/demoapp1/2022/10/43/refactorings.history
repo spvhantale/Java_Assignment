@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.swapnil.model&apos; to &apos;EmployeeappAssignment2/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;demoapp1&apos;&#x0D;&#x0A;- Destination element: &apos;EmployeeappAssignment2/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;demoapp1/src/main/java/com.swapnil.model&apos;" description="Copy package" destination="=EmployeeappAssignment2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.swapnil.model" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1665936674220" version="1.0"/>
+</session>

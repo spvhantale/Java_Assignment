@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dp1" class="com.swapnil.Department">
+	<constructor-arg  name="deptId" value="101"/>
+	<constructor-arg  name="deptName" value="Sales"/>
+	<constructor-arg  name="location" value="Pune"/>
+	</bean>
+	<bean id="dp2" class="com.swapnil.Department">
+	<constructor-arg  name="deptId" value="102"/>
+	<constructor-arg  name="deptName" value="Marketing"/>
+	<constructor-arg  name="location" value="Mumbai"/>
+	</bean>
+	<bean id="dp3" class="com.swapnil.Department">
+	<constructor-arg  name="deptId" value="103"/>
+	<constructor-arg  name="deptName" value="Account"/>
+	<constructor-arg  name="location" value="Nagpur"/>
+	</bean>
+	
+	<bean id="em1" class="com.swapnil.Employee">
+	<constructor-arg name="empId" value="201"/>
+	<constructor-arg  name="empName" value="Swapnil"/>
+	<constructor-arg name="address" value="Latur"/>
+	<constructor-arg name="salary" value="35000"/>	
+	</bean>
+	<bean id="em2" class="com.swapnil.Employee">
+	<constructor-arg name="empId" value="202"/>
+	<constructor-arg  name="empName" value="vhantale"/>
+	<constructor-arg name="address" value="Jalna"/>
+	<constructor-arg name="salary" value="55000"/>	
+	</bean>
+	<bean id="em3" class="com.swapnil.Employee">
+	<constructor-arg name="empId" value="204"/>
+	<constructor-arg  name="empName" value="Asd"/>
+	<constructor-arg name="address" value="sf"/>
+	<constructor-arg name="salary" value="45000"/>	
+	</bean>
+	
+	<bean id="did" class="com.swapnil.Demo" init-method="myInit" lazy-init="true" destroy-method="cleanUp">
+	
+	<property name="theMap">
+	
+	<map>
+		<entry key-ref="dp1" value-ref="em1"/>
+		<entry key-ref="dp2" value-ref="em2"/>
+		<entry key-ref="dp3" value-ref="em3"/>
+		
+	
+	</map>
+	
+	
+	</property>
+	
+	
+	</bean>
+
+
+
+</beans>
+

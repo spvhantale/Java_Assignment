@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.swapnil.useCase.AddEmployeeCase&apos; to &apos;AddDepartmentCase&apos;&#x0D;&#x0A;- Original project: &apos;Question1app&apos;&#x0D;&#x0A;- Original element: &apos;com.swapnil.useCase.AddEmployeeCase&apos;&#x0D;&#x0A;- Renamed element: &apos;com.swapnil.useCase.AddDepartmentCase&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;AddEmployeeCase&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.swapnil.useCase{AddEmployeeCase.java[AddEmployeeCase" matchStrategy="1" name="AddDepartmentCase" qualified="false" references="true" similarDeclarations="false" stamp="1665998158199" textual="false" version="1.0"/>
+</session>

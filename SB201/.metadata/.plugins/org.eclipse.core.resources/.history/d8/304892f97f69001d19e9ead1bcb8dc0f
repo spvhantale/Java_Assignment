@@ -1,0 +1,43 @@
+package com.masai.dao;
+
+import javax.persistence.EntityManager;
+
+import com.masai.model.Account;
+
+
+
+public class StateBankImpl implements StateBankDAO{
+
+	@Override
+	public Account findAccountById(int id) {
+		
+		EntityManager	em=En
+		
+		return null;
+	}
+
+	@Override
+	public String saveAccount(Account account) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteAccountById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String withdrawFromAccount(double amount, int accountId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String depositInAccount(double amount, int accountId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

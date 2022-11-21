@@ -1,0 +1,5 @@
+package com.swapnil.model;
+
+public class Account {
+
+}
